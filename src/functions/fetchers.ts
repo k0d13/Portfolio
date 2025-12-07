@@ -1,22 +1,19 @@
 export namespace installs {
   export function npm(name: string) {
     return async () => {
-      console.log('requesting', name);
       const date = await fetch(`https://registry.npmjs.org/${name}`)
         .then((r) => r.json())
         .then((r) => new Date(r.time.created));
-      
+
       let downloads = 0;
       while (date < new Date()) {
         const year = date.getFullYear();
-        console.log('requesting', name, year, 'and', year + 1);
-        const downs = await fetch(`https://api.npmjs.org/downloads/point/${year}-01-01:${year+1}-01-01/${name}`)
+        const d = await fetch(`https://api.npmjs.org/downloads/point/${year}-01-01:${year + 1}-01-01/${name}`)
           .then((r) => r.json())
           .then((r) => Number(r.downloads));
-        downloads += downs;
+        downloads += d;
         date.setFullYear(date.getFullYear() + 1);
       }
-
       return downloads;
     };
   }
