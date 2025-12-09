@@ -10,7 +10,7 @@ export default function NameCard({
     <Card {...props}>
       <CardHeader className="flex h-full flex-col items-center justify-center gap-2">
         <Avatar className="size-14">
-          <img src="https://github.com/apteryxxyz.png" alt="Apteryx" />
+          <img src="https://github.com/k0d13.png" alt="Apteryx" />
         </Avatar>
 
         <CardTitle className="space-x-2 text-3xl">
@@ -18,7 +18,7 @@ export default function NameCard({
 
           <a
             className="inline-flex items-center justify-center"
-            href="https://github.com/apteryxxyz"
+            href="https://github.com/k0d13"
             target="_blank"
             rel="noopener noreferrer"
           >
